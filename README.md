@@ -1,0 +1,4 @@
+cordovaboilerplateplugin
+========================
+
+Cordova Plugin Boilerplate
