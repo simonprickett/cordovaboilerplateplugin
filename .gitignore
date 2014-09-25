@@ -1,0 +1,10 @@
+*.csproj.user
+*.suo
+*.cache
+Thumbs.db
+*.DS_Store
+*.bak
+*.cache
+*.log
+*.user
+*.swp

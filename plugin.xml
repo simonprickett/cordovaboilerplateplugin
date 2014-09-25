@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="org.crudworks.cordovaboilerplateplugin" version="0.0.1">
+	<name>CordovaBoilerPlatePlugin</name>
+	<description>Cordova Boiler Plate Plugin</description>
+	<license>MIT</license>
+	<keywords>cordova, plugin, boilerplate, android, ios</keywords>
+	<repo>https://github.com/simonprickett/cordovaboilerplateplugin.git</repo>
+	<issue>https://github.com/simonprickett/cordovaboilerplateplugin/issues</issue>
+
+	<js-module src="www/CordovaBoilerPlatePlugin.js" name="CordovaBoilerPlatePlugin">
+		<clobbers target="CordovaBoilerPlatePlugin" />
+	</js-module>
+
+	<!-- ios -->
+	<platform name="ios">
+	</platform>
+
+	<!-- android -->
+	<platform name="android">
+	</platform>
+</plugin>
