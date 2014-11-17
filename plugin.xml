@@ -13,14 +13,16 @@
 
 	<!-- ios -->
 	<platform name="ios">
-		<feature name="CordovaBoilerPlatePlugin">
-			<param name="ios-package" value="CordovaBoilerPlatePlugin"/>
-		</feature>
+		<config-file target="config.xml" parent="/*">
+			<feature name="CordovaBoilerPlatePlugin">
+				<param name="ios-package" value="CordovaBoilerPlatePlugin"/>
+			</feature>
+		</config-file>
 	</platform>
 
 	<!-- android -->
 	<platform name="android">
-		<config-file target="config.xml" parent="/*">
+		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="CordovaBoilerPlatePlugin">
 				<param name="android-package" value="org.crudworks.cordova.plugins.CordovaBoilerPlatePlugin"/>
 			</feature>
