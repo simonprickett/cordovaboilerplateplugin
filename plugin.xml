@@ -13,6 +13,9 @@
 
 	<!-- ios -->
 	<platform name="ios">
+		<feature name="CordovaBoilerPlatePlugin">
+			<param name="ios-package" value="CordovaBoilerPlatePlugin"/>
+		</feature>
 	</platform>
 
 	<!-- android -->
@@ -20,7 +23,6 @@
 		<config-file target="config.xml" parent="/*">
 			<feature name="CordovaBoilerPlatePlugin">
 				<param name="android-package" value="org.crudworks.cordova.plugins.CordovaBoilerPlatePlugin">
-				<param name="ios-package" value="CordovaBoilerPlatePlugin"/>
 			</feature>
 		</config-file>
 	</platform>
