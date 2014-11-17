@@ -7,6 +7,10 @@
 {
     CDVPluginResult* pluginResult = nil;
  	// TODO 
+
+ 	// Error state 
+ 	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+
  	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
@@ -16,6 +20,10 @@
     NSString* argA = [command.arguments objectAtIndex:0];
 
  	// TODO 
+
+    // Error state
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+
  	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
@@ -26,6 +34,9 @@
     // TODO argB an object?
 
  	// TODO 
+
+ 	// Error state
+ 	pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
 
  	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
