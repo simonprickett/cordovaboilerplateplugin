@@ -17,5 +17,10 @@
 
 	<!-- android -->
 	<platform name="android">
+		<config-file target="config.xml" parent="/*">
+			<feature name="CordovaBoilerPlatePlugin">
+				<param name="android-package" value="org.crudworks.cordova.plugins.CordovaBoilerPlatePlugin">
+			</feature>
+		</config-file>
 	</platform>
 </plugin>
