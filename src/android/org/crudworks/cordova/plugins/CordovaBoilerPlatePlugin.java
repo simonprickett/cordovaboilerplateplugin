@@ -28,6 +28,7 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 
 	private void doSomethingNoArgs(CallbackContext callbackContext) {
 		// TODO
+		boolean success = false;
 
 		// Call some native API
 		// End call some native API
@@ -41,6 +42,7 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 
 	private void doSomethingOneArg(String arg, CallbackContext callbackContext) {
 		// TODO		
+		boolean success = false;
 
 		// Call some native API
 		// End call some native API
@@ -55,7 +57,8 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 
 	private void doSomethingMultipleArgs(String arg, JSONObject argObj, CallbackContext callbackContext) {
 		// TODO
-
+		boolean success = false;
+		
 		// Call some native API
 		// End call some native API
 
