@@ -1,4 +1,3 @@
-// TODO
 package org.crudworks.cordova.plugins;
 
 import org.apache.cordova.CordovaPlugin;
@@ -10,7 +9,8 @@ import org.json.JSONException;
 public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		// Which method was called?
+		// Which method was called? With many methods in a 
+		// plugin we could do this another way e.g. reflection
 		if ("doSomethingNoArgs".equals(action)) {
 			doSomethingNoArgs(callbackContext);
 			return true;
@@ -29,6 +29,9 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 	private void doSomethingNoArgs(CallbackContext callbackContext) {
 		// TODO
 
+		// Call some native API
+		// End call some native API
+
 		if (success) {
 			callbackContext.success(TODO);
 		} else {
@@ -39,6 +42,9 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 	private void doSomethingOneArg(String arg, CallbackContext callbackContext) {
 		// TODO		
 
+		// Call some native API
+		// End call some native API
+
 		if (success) {
 			callbackContext.success(TODO);
 		} else {
@@ -48,7 +54,10 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 	}
 
 	private void doSomethingMultipleArgs(String arg, JSONObject argObj, CallbackContext callbackContext) {
-		// TODO		
+		// TODO
+
+		// Call some native API
+		// End call some native API
 
 		if (success) {
 			callbackContext.success(TODO);
