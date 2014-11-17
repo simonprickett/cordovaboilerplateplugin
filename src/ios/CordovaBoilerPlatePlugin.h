@@ -1,8 +1,10 @@
 // TODO
- #import <Cordova/CDV.h>
+#import <Cordova/CDV.h>
 
- @interface CordovaBoilerPlatePlugin : CDVPlugin
+@interface CordovaBoilerPlatePlugin : CDVPlugin
 
- - (void)TODOmethodName:(CDVInvokedUrlCommand*)command;
+- (void)doSomethingNoArgs:(CDVInvokedUrlCommand*)command;
+- (void)doSomethingOneArg:(CDVInvokedUrlCommand*)command;
+- (void)doSomethingMultipleArgs:(CDVInvokedUrlCommand*)command;
 
- @end
+@end

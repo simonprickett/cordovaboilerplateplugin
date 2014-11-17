@@ -14,7 +14,7 @@
  	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
- - (void)doSomethingOneArg:(CDVInvokedUrlCommand*)command
+- (void)doSomethingOneArg:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
     NSString* argA = [command.arguments objectAtIndex:0];
@@ -27,7 +27,7 @@
  	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
- - (void)doSomethingMultipleArgs:(CDVInvokedUrlCommand*)command
+- (void)doSomethingMultipleArgs:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
 	NSString* argA = [command.arguments objectAtIndex:0];
