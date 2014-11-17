@@ -18,6 +18,7 @@
 				<param name="ios-package" value="CordovaBoilerPlatePlugin"/>
 			</feature>
 		</config-file>
+		<source-file src="src/android/org/crudworks/cordova/plugins/CordovaBoilerPlatePlugin.java" target-dir="src/org/crudworks/cordova/plugins/"/>
 	</platform>
 
 	<!-- android -->
@@ -27,5 +28,7 @@
 				<param name="android-package" value="org.crudworks.cordova.plugins.CordovaBoilerPlatePlugin"/>
 			</feature>
 		</config-file>
+		<header-file src="src/ios/CordovaBoilerPlatePlugin.h"/>
+		<source-file src="src/ios/CordovaBoilerPlatePlugin.m"/>
 	</platform>
 </plugin>
