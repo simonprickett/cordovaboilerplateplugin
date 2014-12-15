@@ -1,3 +1,5 @@
+// TODO comments, header
+
 package org.crudworks.cordova.plugins;
 
 import org.apache.cordova.CordovaPlugin;
@@ -6,7 +8,18 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+// Needed only for fake API calls
+import java.util.HashMap;
+import java.util.Map;
+
 public class CordovaBoilerPlatePlugin extends CordovaPlugin {
+	@Override 
+	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+		super.initialize(cordova, webView);
+		// Plugin specific one off initialization code here, this one doesn't
+		// have any
+	}
+
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		// Which method was called? With many methods in a 
@@ -18,7 +31,7 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 			doSomethingOneArg(args.getString(0), callbackContext);
 			return true;
 		} else if ("doSometingMultipleArgs".equals(action)) {
-			doSomethingMultipleArgs(args.getString(0), args.getJSONObject(1), callbackContext);
+			doSomethingMultipleArgs(args.getString(0), args.getBoolean(1), args.getJSONArray(2), callbackContext);
 			return true;
 		}
 
@@ -27,16 +40,17 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 	}
 
 	private void doSomethingNoArgs(CallbackContext callbackContext) {
-		// TODO
 		boolean success = false;
 
-		// Call some native API
+		// Call some native API and set success to true|false
+		int result = callSomeApi();
+		success = !(result == -1);
 		// End call some native API
 
 		if (success) {
-			callbackContext.success(TODO);
+			callbackContext.success(result);
 		} else {
-			callBackContext.error(TODO);
+			callBackContext.error("Some native API failed!");
 		}
 	}
 
@@ -44,28 +58,75 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 		// TODO		
 		boolean success = false;
 
-		// Call some native API
+		// Call some native API and set success to true|false
+		String result = callSomeApi(arg);
+		success = (result != null);
 		// End call some native API
 
 		if (success) {
-			callbackContext.success(TODO);
+			callbackContext.success(result);
 		} else {
-			callBackContext.error(TODO);
+			callBackContext.error("Some native API failed!");
 		}
 
 	}
 
-	private void doSomethingMultipleArgs(String arg, JSONObject argObj, CallbackContext callbackContext) {
-		// TODO
+	private void doSomethingMultipleArgs(String argStr, boolean argBool, JSONArray argArray, CallbackContext callbackContext) {
 		boolean success = false;
-		
-		// Call some native API
-		// End call some native API
 
-		if (success) {
-			callbackContext.success(TODO);
-		} else {
-			callBackContext.error(TODO);
+		// Check argArray
+		if (argArray == null || argArray.length() == 0) {
+			callbackContext.error("doSomethingMultipleArgs requires a populated argArray!");
+		} else {		
+			// Call some native API and set success to true|false
+			String[] stringArray = new String[argArray.length()];
+
+			for (int n = 0; n < argArray.length; n++) {
+				stringArray[n] = argArray[n].getString();
+			}
+
+			Map <String, String> result = callSomeApi(argStr, argBool, stringArray);
+			success = (result != null && ! result.isEmpty());
+			// End call some native API
+
+			if (success) {
+				// Do something with result
+				// TODO
+				callbackContext.success(TODO);
+			} else {
+				callBackContext.error("Some native API failed!");
+			}
 		}
+	}
+
+	// ***** The rest of this class represent dummy API methods *****
+	// ***** and are not as such part of the Cordova plugin     *****
+
+	// Dummy API call returns an int
+	private int callSomeApi() {
+		return 42;
+	}
+
+	// Dummy API call returns a String, uses single parameter
+	private String callSomeApi(String param) {
+		String result = null;
+
+		if (param != null && param.length() > 0) {
+			result = new StringBuilder(param).reverse().toString();			
+		}
+
+		return result;
+	}
+
+	// Dummy API call returns a Map, uses parameters
+	private Map<String, String> callSomeApi(String prefix, boolean reverseStrings, String[] stringArray) {
+		Map<String, String> m = new HashMap(String, String>();
+
+		for (int n = 0; n < stringArray.length(); n++) {
+			String str = (reverseStrings ? newStringBuilder(stringArray[n]).reverse().toString() : stringArray[n]);
+			m.put(prefix + new String(n), str);
+		}
+
+		return m;
 	}
 }

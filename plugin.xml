@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO comments, header -->
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="org.crudworks.cordova.plugins.cordovaboilerplateplugin" version="0.0.1">
 	<name>CordovaBoilerPlatePlugin</name>
 	<description>Cordova Boiler Plate Plugin</description>
@@ -11,7 +12,7 @@
 		<clobbers target="CordovaBoilerPlatePlugin" />
 	</js-module>
 
-	<!-- ios -->
+	<!-- iOS -->
 	<platform name="ios">
 		<config-file target="config.xml" parent="/*">
 			<feature name="CordovaBoilerPlatePlugin">
@@ -22,7 +23,7 @@
 		<source-file src="src/ios/CordovaBoilerPlatePlugin.m"/>
 	</platform>
 
-	<!-- android -->
+	<!-- Android -->
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="CordovaBoilerPlatePlugin">

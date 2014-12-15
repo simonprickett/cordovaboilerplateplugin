@@ -1,4 +1,4 @@
-// TODO comments
+// TODO comments, header
 var exec = require('cordova/exec');
 
 var cordovaBoilerPlatePlugin = {
@@ -13,11 +13,12 @@ var cordovaBoilerPlatePlugin = {
 		cordova.exec(onSuccess, onError, 'CordovaBoilerPlatePlugin', 'doSomethingOneArg', [arg]);
 	},
 
-	doSomethingMultipleArgs: function(argA, argB, onSuccess, onError) {
+	doSomethingMultipleArgs: function(argA, argB, argC, onSuccess, onError) {
 		console.log('Hello from doSomethingMultipleArgs');
 		console.log('Called with argA = "' + argA + '"');
 		console.log('Called with argB = "' + argB + '"');
-		cordova.exec(onSuccess, onError, 'CordovaBoilerPlatePlugin', 'doSomethingMultipleArgs', [argA, argB]);
+		console.log('Called with argC = "' + argC + '"');
+		cordova.exec(onSuccess, onError, 'CordovaBoilerPlatePlugin', 'doSomethingMultipleArgs', [argA, argB, argC]);
 	}
 };
 
