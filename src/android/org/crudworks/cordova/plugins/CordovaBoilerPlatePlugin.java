@@ -2,7 +2,9 @@
 
 package org.crudworks.cordova.plugins;
 
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
 
 import org.json.JSONArray;
@@ -50,7 +52,7 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 		if (success) {
 			callbackContext.success(result);
 		} else {
-			callBackContext.error("Some native API failed!");
+			callbackContext.error("Some native API failed!");
 		}
 	}
 
@@ -66,7 +68,7 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 		if (success) {
 			callbackContext.success(result);
 		} else {
-			callBackContext.error("Some native API failed!");
+			callbackContext.error("Some native API failed!");
 		}
 
 	}
@@ -81,8 +83,13 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 			// Call some native API and set success to true|false
 			String[] stringArray = new String[argArray.length()];
 
-			for (int n = 0; n < argArray.length; n++) {
-				stringArray[n] = argArray[n].getString();
+			for (int n = 0; n < argArray.length(); n++) {
+				try {
+					stringArray[n] = argArray.getString(n);
+				} catch(JSONException jsone) {
+					callbackContext.error("doSomethingMultipleArgs found a non-String value in argArray!");
+					return;
+				}
 			}
 
 			Map <String, String> result = callSomeApi(argStr, argBool, stringArray);
@@ -92,9 +99,9 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 			if (success) {
 				// Do something with result
 				// TODO
-				callbackContext.success(TODO);
+				callbackContext.success("TODO");
 			} else {
-				callBackContext.error("Some native API failed!");
+				callbackContext.error("Some native API failed!");
 			}
 		}
 	}
@@ -120,11 +127,11 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 
 	// Dummy API call returns a Map, uses parameters
 	private Map<String, String> callSomeApi(String prefix, boolean reverseStrings, String[] stringArray) {
-		Map<String, String> m = new HashMap(String, String>();
+		Map<String, String> m = new HashMap<String, String>();
 
-		for (int n = 0; n < stringArray.length(); n++) {
-			String str = (reverseStrings ? newStringBuilder(stringArray[n]).reverse().toString() : stringArray[n]);
-			m.put(prefix + new String(n), str);
+		for (int n = 0; n < stringArray.length; n++) {
+			String str = (reverseStrings ? new StringBuilder(stringArray[n]).reverse().toString() : stringArray[n]);
+			m.put(prefix + Integer.toString(n), str);
 		}
 
 		return m;
