@@ -9,6 +9,7 @@ import org.apache.cordova.CallbackContext;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 // Needed only for fake API calls
 import java.util.HashMap;
@@ -97,9 +98,18 @@ public class CordovaBoilerPlatePlugin extends CordovaPlugin {
 			// End call some native API
 
 			if (success) {
-				// Do something with result
+				// Pack result up into a JSON Object
+				JSONObject resObj = new JSONObject();
+				for (Map.Entry<String, String> entry: result.entrySet()) {
+					try {
+						resObj.put(entry.getKey(), entry.getValue());
+					} catch (JSONException jsone) {
+						callbackContext.error("JSONException marshalling return object!");
+					}
+				}
+
 				// TODO
-				callbackContext.success("TODO");
+				callbackContext.success(resObj);
 			} else {
 				callbackContext.error("Some native API failed!");
 			}
